@@ -1,0 +1,756 @@
+{
+  "topic": "Test topic",
+  "mode": "agent",
+  "error": null,
+  "rounds": 1,
+  "messages": [
+    {
+      "parts": [
+        {
+          "content": "Research topic: Test topic\n\nResearch it with your tools, then write the brief following your instructions.",
+          "timestamp": "2026-11-06T10:17:26.415573Z",
+          "part_kind": "user-prompt"
+        }
+      ],
+      "timestamp": "2026-11-06T10:17:26.420771Z",
+      "instructions": "You are a careful research assistant that writes short, source-cited briefs.\n\nWHEN TO USE TOOLS\n- Any factual research topic needs external information. Do not rely on your own memory for facts.\n1. ddg_search: call 1-2 times with focused, differently-worded queries.\n2. wiki_summary: call once for background on the main entity/concept, if it has a Wikipedia page.\n3. select_top_urls: call to choose 4-5 pages (leave `results` empty to use all search results so far).\n   Choose pages from at least 3 DIFFERENT domains; avoid forums and social media.\n4. fetch_page_clean: call on each selected URL. If text comes back empty, skip it and fetch another.\n5. save_logs: call once, right before you write the final brief.\nCall tools again on follow-up questions only if the answer is not already in the fetched sources.\n\nGROUNDING\n- Use ONLY facts found in tool results. If sources do not cover something, say so; never guess.\n- If the sources disagree, say that and attribute each claim.\n\nCITATIONS\n- Every fetch_page_clean / wiki_summary result includes a `source_number`. Cite with [n] using exactly\n  that number. Never invent a number. Every paragraph needs at least one citation, e.g. \"... [2]\".\n\nQUOTES\n- Include at least two verbatim quotes, each AT MOST 10 words, copied exactly from fetched text,\n  in double quotes, followed by a citation. Quote only text you actually saw.\n\nFORMAT\n- 5-8 paragraphs of plain prose (no bullet lists). Neutral, concise tone.\n- Do NOT write a References section; it is generated from your citations afterwards.\n\nFOLLOW-UPS\n- Use the conversation history. When asked to refine, return the FULL revised brief and keep the\n  citation numbers of existing sources unchanged.",
+      "kind": "request",
+      "run_id": "01a1b05c-fbae-70e3-99eb-89b480ba8303",
+      "conversation_id": "01a1b05c-fbae-70e3-99eb-89b58140a08e",
+      "metadata": null,
+      "state": "complete"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "ddg_search_tool",
+          "args": "{\"query\":\"Test topic\",\"max_results\":5}",
+          "tool_call_id": "call_m9XHr8MQg60Qaef9nxQ3N51n",
+          "tool_kind": null,
+          "id": null,
+          "provider_name": null,
+          "provider_details": null,
+          "part_kind": "tool-call"
+        }
+      ],
+      "usage": {
+        "input_tokens": 668,
+        "cache_write_tokens": 0,
+        "cache_write_1h_tokens": 0,
+        "cache_read_tokens": 0,
+        "output_tokens": 22,
+        "output_reasoning_tokens": 0,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "audio_seconds": 0.0,
+        "details": {
+          "is_byok": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "image_tokens": 0
+        },
+        "cost": "0.0001134"
+      },
+      "model_name": "openai/gpt-4o-mini",
+      "model_id": "openai:openai/gpt-4o-mini",
+      "timestamp": "2026-11-06T10:17:27.693180Z",
+      "kind": "response",
+      "provider_name": "openai",
+      "provider_url": "https://openrouter.ai/api/v1/",
+      "canonical_system": "openai",
+      "provider_details": {
+        "finish_reason": "tool_calls",
+        "service_tier": "default",
+        "timestamp": "2026-11-06T10:17:26Z"
+      },
+      "provider_response_id": "gen-1793960246-FtLc0gESAYkFjFusxwBx",
+      "finish_reason": "tool_call",
+      "run_id": "01a1b05c-fbae-70e3-99eb-89b480ba8303",
+      "conversation_id": "01a1b05c-fbae-70e3-99eb-89b58140a08e",
+      "metadata": null,
+      "workspace_ref": null,
+      "history_digest": null,
+      "failed_attempts": null,
+      "state": "complete"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "ddg_search_tool",
+          "content": [
+            {
+              "title": "320 SAT Math Subject Test Problems Arranged by Topic and Difficulty Level - Level 2: 160 Questions with Solutions, 160 Additional Questions with Answers (book)",
+              "url": "https://grokipedia.com/page/320_sat_math_subject_test_problems_arranged_by_topic_and_difficulty_level_level_2_160_questio_(book)",
+              "snippet": "320 SAT Math Subject Test Problems Arranged by Topic and Difficulty Level - Level 2: 160 Questions with Solutions, 160 Additional Questions with Answers is a test preparation book specifically for the SAT Subject Test in Mathematics Level 2 (discont…"
+            }
+          ],
+          "tool_call_id": "call_m9XHr8MQg60Qaef9nxQ3N51n",
+          "tool_kind": null,
+          "metadata": null,
+          "timestamp": "2026-11-06T10:17:29.062034Z",
+          "outcome": "success",
+          "retry": null,
+          "part_kind": "tool-return",
+          "content_file_digests": []
+        }
+      ],
+      "timestamp": "2026-11-06T10:17:29.068984Z",
+      "instructions": "You are a careful research assistant that writes short, source-cited briefs.\n\nWHEN TO USE TOOLS\n- Any factual research topic needs external information. Do not rely on your own memory for facts.\n1. ddg_search: call 1-2 times with focused, differently-worded queries.\n2. wiki_summary: call once for background on the main entity/concept, if it has a Wikipedia page.\n3. select_top_urls: call to choose 4-5 pages (leave `results` empty to use all search results so far).\n   Choose pages from at least 3 DIFFERENT domains; avoid forums and social media.\n4. fetch_page_clean: call on each selected URL. If text comes back empty, skip it and fetch another.\n5. save_logs: call once, right before you write the final brief.\nCall tools again on follow-up questions only if the answer is not already in the fetched sources.\n\nGROUNDING\n- Use ONLY facts found in tool results. If sources do not cover something, say so; never guess.\n- If the sources disagree, say that and attribute each claim.\n\nCITATIONS\n- Every fetch_page_clean / wiki_summary result includes a `source_number`. Cite with [n] using exactly\n  that number. Never invent a number. Every paragraph needs at least one citation, e.g. \"... [2]\".\n\nQUOTES\n- Include at least two verbatim quotes, each AT MOST 10 words, copied exactly from fetched text,\n  in double quotes, followed by a citation. Quote only text you actually saw.\n\nFORMAT\n- 5-8 paragraphs of plain prose (no bullet lists). Neutral, concise tone.\n- Do NOT write a References section; it is generated from your citations afterwards.\n\nFOLLOW-UPS\n- Use the conversation history. When asked to refine, return the FULL revised brief and keep the\n  citation numbers of existing sources unchanged.",
+      "kind": "request",
+      "run_id": "01a1b05c-fbae-70e3-99eb-89b480ba8303",
+      "conversation_id": "01a1b05c-fbae-70e3-99eb-89b58140a08e",
+      "metadata": null,
+      "state": "complete"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "ddg_search_tool",
+          "args": "{\"query\":\"Testing methodology\",\"max_results\":5}",
+          "tool_call_id": "call_BTgo0N2XgJVdOhQHXhlWqjBI",
+          "tool_kind": null,
+          "id": null,
+          "provider_name": null,
+          "provider_details": null,
+          "part_kind": "tool-call"
+        }
+      ],
+      "usage": {
+        "input_tokens": 830,
+        "cache_write_tokens": 0,
+        "cache_write_1h_tokens": 0,
+        "cache_read_tokens": 0,
+        "output_tokens": 22,
+        "output_reasoning_tokens": 0,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "audio_seconds": 0.0,
+        "details": {
+          "is_byok": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "image_tokens": 0
+        },
+        "cost": "0.0001377"
+      },
+      "model_name": "openai/gpt-4o-mini",
+      "model_id": "openai:openai/gpt-4o-mini",
+      "timestamp": "2026-11-06T10:17:30.012695Z",
+      "kind": "response",
+      "provider_name": "openai",
+      "provider_url": "https://openrouter.ai/api/v1/",
+      "canonical_system": "openai",
+      "provider_details": {
+        "finish_reason": "tool_calls",
+        "service_tier": "default",
+        "timestamp": "2026-11-06T10:17:29Z"
+      },
+      "provider_response_id": "gen-1793960249-VZpS8FQ5Te6i4q0BNgJD",
+      "finish_reason": "tool_call",
+      "run_id": "01a1b05c-fbae-70e3-99eb-89b480ba8303",
+      "conversation_id": "01a1b05c-fbae-70e3-99eb-89b58140a08e",
+      "metadata": null,
+      "workspace_ref": null,
+      "history_digest": null,
+      "failed_attempts": null,
+      "state": "complete"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "ddg_search_tool",
+          "content": [
+            {
+              "title": "Testing Methodologies: Types, Examples, and How to Choose",
+              "url": "https://www.testmuai.com/learning-hub/testing-methodologies/",
+              "snippet": "Oct 6, 2026 · Testing methodologies are the structured approaches, like Waterfall, Agile, the V-Model, and Iterative development, that determine when and how test teams verify a software application through its Software Development Life Cycle."
+            },
+            {
+              "title": "Software Testing Methodologies: QA Models - Guru99What is Software Test Methodology? (With 6 Test Methodologies)Software Testing Techniques - GeeksforGeeksTypes of Software Testing - GeeksforGeeksSoftware Testing Methodology - What it is & How to SetUp?Software Testing Methodologies | Explore Types of Software ...",
+              "url": "https://www.guru99.com/testing-methodology.html",
+              "snippet": "Software Testing Methodology is defined as strategies and testing types used to certify that the Application Under Test meets client expectations. Test Methodologies include functional and non-functional testing to validate the AUT. Examples of Testing Methodologies are Unit Testing, Integration Testing, System Testing, Performance Testingetc. Each... See full list on guru99.com What is it? In the waterfall model, software development progress through various phases like Requirements Analysis, Design etc – sequentially. What Is The Testing Approach? The first phase in the waterfall model is the requirements phase in which all the project requirements are completely defined before starting the testing. During this phase, the test team brainstorms the scope of testing, test strategy and drafts a detailed test plan. Only once the design of software is complete, the team will move on to execution of the test cases to ensure that the developed software behaves as it expected. In this methodology, the testing team proceeds to the next phase on... See full list on guru99.com What is it? In this model, a big project is divided into small parts, and each part is subjected to multiple iterations of the waterfall model. At the end of an iteration, a new module is developed or an existing module is enhanced. This module is integrated into the software architecture and the entire system is tested all together What is the testing Approach? As soon as iteration is completed, the entire system is subjected to testing. Feedback from testing is immediately available and is incorporated in the next cycle. The testing time required in successive iteration can be reduced based on the experience gained from past iterations. See full list on guru99.com What is it? Traditional software development methodologies work on the premise that software requirements remain constant throughout the project. But with an increase in complexity, the requirements undergo numerous changes and continuously evolve. At times, the customer himself is not sure what he wants. Though the iterative model addresses this issue, it’s still based on the waterfall model. In Agile methodology, software is developed in incremental, rapid cycles. Interactions amongst customers, develo... What Is The Testing Approach? Incremental testing is used in agile development methods and hence, every release of the project is tested thoroughly. This ensures that any bugs in the system are fixed before the next release. See full list on guru99.com What is it? Extreme programming is a type of agile methodology which beliefs in short development cycles. A project is divided into simple engineering tasks. Programmers code a simple piece of software and get back to the customer for feedback. Review points from the customer are incorporated and the developers proceed with the next task. In extreme programming developers usually, work in pairs. Extreme Programmingis used in places where customer requirements are constantly changing. What Is The Testing Approach? 1. Add aTest Case to the test suite to verify the new functionality which is yet to be developed 2. Run all the tests and obviously the new test case added must fail since the functionality is not coded yet 3. Write some code to implement the feature/functionality 4. Run the test suite again. This time, the new test case should pass since the functionally has been coded See full list on guru99.com There are tons of methodologies available for software development and its corresponding testing. Each testing technique and methodology is designed for a specific purpose and has its relative merits and demerits. Selection of a particular methodology depends on many factors such as the nature of a project, client requirement, project schedule, etc... See full list on guru99.com Software testing methodologies should not be set up just for the sake of testing software code. The big picture should be considered and the prime goal of the project should be satisfied with the testing methodology. Refer to this list of reputable software testing service providerswho can help you establish effective testing strategies tailored to... See full list on guru99.com Sep 27, 2024 · Learn what software test methodology is and how it helps to ensure the quality and functionality of software products. Explore six common testing methodologies, such as waterfall, agile, and iterative, with benefits, drawbacks, and use cases. Jun 19, 2026 · Software testing techniques are methods used to evaluate an application against functional and non-functional requirements. Each technique focuses on identifying specific types of defects in the system. Using multiple techniques helps ensure better software quality and reliability. Aug 29, 2026 · In addition to testing classifications based on execution method, technique, level, and purpose, several specialized testing types are used to evaluate specific aspects of software. Learn about the different approaches and strategies to ensure software quality and user expectations. Compare and choose the best methodology for your project, such as Waterfall, Iterative, Agile, or XP. Software testing methodologies are the various strategies or approaches used to test an application to ensure it behaves and looks as expected. These encompass everything from front to back-end testing, including unit and system testing."
+            },
+            {
+              "title": "What is Software Test Methodology? (With 6 Test Methodologies)",
+              "url": "https://www.browserstack.com/guide/software-testing-methodologies",
+              "snippet": "Sep 27, 2024 · Learn what software test methodology is and how it helps to ensure the quality and functionality of software products. Explore six common testing methodologies, such as waterfall, agile, and iterative, with benefits, drawbacks, and use cases."
+            },
+            {
+              "title": "Software Testing Techniques - GeeksforGeeks",
+              "url": "https://www.geeksforgeeks.org/software-testing/software-testing-techniques/",
+              "snippet": "Jun 19, 2026 · Software testing techniques are methods used to evaluate an application against functional and non-functional requirements. Each technique focuses on identifying specific types of defects in the system. Using multiple techniques helps ensure better software quality and reliability."
+            },
+            {
+              "title": "Types of Software Testing - GeeksforGeeks",
+              "url": "https://www.geeksforgeeks.org/software-testing/types-software-testing/",
+              "snippet": "Aug 29, 2026 · In addition to testing classifications based on execution method, technique, level, and purpose, several specialized testing types are used to evaluate specific aspects of software."
+            }
+          ],
+          "tool_call_id": "call_BTgo0N2XgJVdOhQHXhlWqjBI",
+          "tool_kind": null,
+          "metadata": null,
+          "timestamp": "2026-11-06T10:17:30.947234Z",
+          "outcome": "success",
+          "retry": null,
+          "part_kind": "tool-return",
+          "content_file_digests": []
+        }
+      ],
+      "timestamp": "2026-11-06T10:17:30.948449Z",
+      "instructions": "You are a careful research assistant that writes short, source-cited briefs.\n\nWHEN TO USE TOOLS\n- Any factual research topic needs external information. Do not rely on your own memory for facts.\n1. ddg_search: call 1-2 times with focused, differently-worded queries.\n2. wiki_summary: call once for background on the main entity/concept, if it has a Wikipedia page.\n3. select_top_urls: call to choose 4-5 pages (leave `results` empty to use all search results so far).\n   Choose pages from at least 3 DIFFERENT domains; avoid forums and social media.\n4. fetch_page_clean: call on each selected URL. If text comes back empty, skip it and fetch another.\n5. save_logs: call once, right before you write the final brief.\nCall tools again on follow-up questions only if the answer is not already in the fetched sources.\n\nGROUNDING\n- Use ONLY facts found in tool results. If sources do not cover something, say so; never guess.\n- If the sources disagree, say that and attribute each claim.\n\nCITATIONS\n- Every fetch_page_clean / wiki_summary result includes a `source_number`. Cite with [n] using exactly\n  that number. Never invent a number. Every paragraph needs at least one citation, e.g. \"... [2]\".\n\nQUOTES\n- Include at least two verbatim quotes, each AT MOST 10 words, copied exactly from fetched text,\n  in double quotes, followed by a citation. Quote only text you actually saw.\n\nFORMAT\n- 5-8 paragraphs of plain prose (no bullet lists). Neutral, concise tone.\n- Do NOT write a References section; it is generated from your citations afterwards.\n\nFOLLOW-UPS\n- Use the conversation history. When asked to refine, return the FULL revised brief and keep the\n  citation numbers of existing sources unchanged.",
+      "kind": "request",
+      "run_id": "01a1b05c-fbae-70e3-99eb-89b480ba8303",
+      "conversation_id": "01a1b05c-fbae-70e3-99eb-89b58140a08e",
+      "metadata": null,
+      "state": "complete"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "select_top_urls_tool",
+          "args": "{\"results\":[{\"title\":\"Testing Methodologies: Types, Examples, and How to Choose\",\"url\":\"https://www.testmuai.com/learning-hub/testing-methodologies/\",\"snippet\":\"Testing methodologies are the structured approaches, like Waterfall, Agile, the V-Model, and Iterative development, that determine when and how test teams verify a software application through its Software Development Life Cycle.\"},{\"title\":\"Software Testing Methodologies: QA Models - Guru99\",\"url\":\"https://www.guru99.com/testing-methodology.html\",\"snippet\":\"Software Testing Methodology is defined as strategies and testing types used to certify that the Application Under Test meets client expectations.\"},{\"title\":\"Software Test Methodology? (With 6 Test Methodologies)\",\"url\":\"https://www.browserstack.com/guide/software-testing-methodologies\",\"snippet\":\"Learn what software test methodology is and how it helps to ensure the quality and functionality of software products.\"},{\"title\":\"Software Testing Techniques - GeeksforGeeks\",\"url\":\"https://www.geeksforgeeks.org/software-testing/software-testing-techniques/\",\"snippet\":\"Software testing techniques are methods used to evaluate an application against functional and non-functional requirements.\"},{\"title\":\"Types of Software Testing - GeeksforGeeks\",\"url\":\"https://www.geeksforgeeks.org/software-testing/types-software-testing/\",\"snippet\":\"In addition to testing classifications based on execution method, technique, level, and purpose, several specialized testing types are used to evaluate specific aspects of software.\"}]}",
+          "tool_call_id": "call_wLLLySqj76Ui6rbG4OajeqTu",
+          "tool_kind": null,
+          "id": null,
+          "provider_name": null,
+          "provider_details": null,
+          "part_kind": "tool-call"
+        }
+      ],
+      "usage": {
+        "input_tokens": 2266,
+        "cache_write_tokens": 0,
+        "cache_write_1h_tokens": 0,
+        "cache_read_tokens": 0,
+        "output_tokens": 314,
+        "output_reasoning_tokens": 0,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "audio_seconds": 0.0,
+        "details": {
+          "is_byok": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "image_tokens": 0
+        },
+        "cost": "0.0005283"
+      },
+      "model_name": "openai/gpt-4o-mini",
+      "model_id": "openai:openai/gpt-4o-mini",
+      "timestamp": "2026-11-06T10:17:37.207609Z",
+      "kind": "response",
+      "provider_name": "openai",
+      "provider_url": "https://openrouter.ai/api/v1/",
+      "canonical_system": "openai",
+      "provider_details": {
+        "finish_reason": "tool_calls",
+        "service_tier": "default",
+        "timestamp": "2026-11-06T10:17:30Z"
+      },
+      "provider_response_id": "gen-1793960250-n13UW6o5cH2pEYUVy36w",
+      "finish_reason": "tool_call",
+      "run_id": "01a1b05c-fbae-70e3-99eb-89b480ba8303",
+      "conversation_id": "01a1b05c-fbae-70e3-99eb-89b58140a08e",
+      "metadata": null,
+      "workspace_ref": null,
+      "history_digest": null,
+      "failed_attempts": null,
+      "state": "complete"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "select_top_urls_tool",
+          "content": [
+            "https://www.testmuai.com/learning-hub/testing-methodologies/",
+            "https://www.guru99.com/testing-methodology.html",
+            "https://www.browserstack.com/guide/software-testing-methodologies",
+            "https://www.geeksforgeeks.org/software-testing/software-testing-techniques/",
+            "https://www.geeksforgeeks.org/software-testing/types-software-testing/"
+          ],
+          "tool_call_id": "call_wLLLySqj76Ui6rbG4OajeqTu",
+          "tool_kind": null,
+          "metadata": null,
+          "timestamp": "2026-11-06T10:17:37.211500Z",
+          "outcome": "success",
+          "retry": null,
+          "part_kind": "tool-return",
+          "content_file_digests": []
+        }
+      ],
+      "timestamp": "2026-11-06T10:17:37.212445Z",
+      "instructions": "You are a careful research assistant that writes short, source-cited briefs.\n\nWHEN TO USE TOOLS\n- Any factual research topic needs external information. Do not rely on your own memory for facts.\n1. ddg_search: call 1-2 times with focused, differently-worded queries.\n2. wiki_summary: call once for background on the main entity/concept, if it has a Wikipedia page.\n3. select_top_urls: call to choose 4-5 pages (leave `results` empty to use all search results so far).\n   Choose pages from at least 3 DIFFERENT domains; avoid forums and social media.\n4. fetch_page_clean: call on each selected URL. If text comes back empty, skip it and fetch another.\n5. save_logs: call once, right before you write the final brief.\nCall tools again on follow-up questions only if the answer is not already in the fetched sources.\n\nGROUNDING\n- Use ONLY facts found in tool results. If sources do not cover something, say so; never guess.\n- If the sources disagree, say that and attribute each claim.\n\nCITATIONS\n- Every fetch_page_clean / wiki_summary result includes a `source_number`. Cite with [n] using exactly\n  that number. Never invent a number. Every paragraph needs at least one citation, e.g. \"... [2]\".\n\nQUOTES\n- Include at least two verbatim quotes, each AT MOST 10 words, copied exactly from fetched text,\n  in double quotes, followed by a citation. Quote only text you actually saw.\n\nFORMAT\n- 5-8 paragraphs of plain prose (no bullet lists). Neutral, concise tone.\n- Do NOT write a References section; it is generated from your citations afterwards.\n\nFOLLOW-UPS\n- Use the conversation history. When asked to refine, return the FULL revised brief and keep the\n  citation numbers of existing sources unchanged.",
+      "kind": "request",
+      "run_id": "01a1b05c-fbae-70e3-99eb-89b480ba8303",
+      "conversation_id": "01a1b05c-fbae-70e3-99eb-89b58140a08e",
+      "metadata": null,
+      "state": "complete"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "fetch_page_clean_tool",
+          "args": "{\"url\": \"https://www.testmuai.com/learning-hub/testing-methodologies/\"}",
+          "tool_call_id": "call_XSHWjhwQfmVrgR3ZJZjhWLaN",
+          "tool_kind": null,
+          "id": null,
+          "provider_name": null,
+          "provider_details": null,
+          "part_kind": "tool-call"
+        },
+        {
+          "tool_name": "fetch_page_clean_tool",
+          "args": "{\"url\": \"https://www.guru99.com/testing-methodology.html\"}",
+          "tool_call_id": "call_uMKH6d3OLIhZ2j2yk9vCfKme",
+          "tool_kind": null,
+          "id": null,
+          "provider_name": null,
+          "provider_details": null,
+          "part_kind": "tool-call"
+        },
+        {
+          "tool_name": "fetch_page_clean_tool",
+          "args": "{\"url\": \"https://www.browserstack.com/guide/software-testing-methodologies\"}",
+          "tool_call_id": "call_8bXrCCFTUK7QerMHPu4ho9Wg",
+          "tool_kind": null,
+          "id": null,
+          "provider_name": null,
+          "provider_details": null,
+          "part_kind": "tool-call"
+        },
+        {
+          "tool_name": "fetch_page_clean_tool",
+          "args": "{\"url\": \"https://www.geeksforgeeks.org/software-testing/software-testing-techniques/\"}",
+          "tool_call_id": "call_xNE3r2UGyaIWOcKqGhpqM51W",
+          "tool_kind": null,
+          "id": null,
+          "provider_name": null,
+          "provider_details": null,
+          "part_kind": "tool-call"
+        },
+        {
+          "tool_name": "fetch_page_clean_tool",
+          "args": "{\"url\": \"https://www.geeksforgeeks.org/software-testing/types-software-testing/\"}",
+          "tool_call_id": "call_zolLivYLyE45BESDYpJsxSci",
+          "tool_kind": null,
+          "id": null,
+          "provider_name": null,
+          "provider_details": null,
+          "part_kind": "tool-call"
+        }
+      ],
+      "usage": {
+        "input_tokens": 2664,
+        "cache_write_tokens": 0,
+        "cache_write_1h_tokens": 0,
+        "cache_read_tokens": 2560,
+        "output_tokens": 159,
+        "output_reasoning_tokens": 0,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "audio_seconds": 0.0,
+        "details": {
+          "is_byok": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "image_tokens": 0
+        },
+        "cost": "0.0003030"
+      },
+      "model_name": "openai/gpt-4o-mini",
+      "model_id": "openai:openai/gpt-4o-mini",
+      "timestamp": "2026-11-06T10:17:40.079894Z",
+      "kind": "response",
+      "provider_name": "openai",
+      "provider_url": "https://openrouter.ai/api/v1/",
+      "canonical_system": "openai",
+      "provider_details": {
+        "finish_reason": "tool_calls",
+        "service_tier": "default",
+        "timestamp": "2026-11-06T10:17:37Z"
+      },
+      "provider_response_id": "gen-1793960257-knVu75ykImAPVGkpzkpr",
+      "finish_reason": "tool_call",
+      "run_id": "01a1b05c-fbae-70e3-99eb-89b480ba8303",
+      "conversation_id": "01a1b05c-fbae-70e3-99eb-89b58140a08e",
+      "metadata": null,
+      "workspace_ref": null,
+      "history_digest": null,
+      "failed_attempts": null,
+      "state": "complete"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "fetch_page_clean_tool",
+          "content": {
+            "title": "Testing Methodologies: Types, Examples, and How to Choose",
+            "url": "https://www.testmuai.com/learning-hub/testing-methodologies/",
+            "text": "Write, Track and Manage Every Manual or Automated Tests in One Agentic Test Management Platform with TestMu AI Test Manager.\nTesting Methodologies: Types, Examples, and How to Choose\nTesting methodologies define how software is tested. Compare Waterfall, Agile, V-Model, Iterative, Spiral, and XP, and learn when to use each one.\nWhy Are Testing Methodologies Important?\nHow Do Testing Methodologies Differ From Software Testing Types?\nWhen to Implement Testing Methodologies?\nWhat Are the Benefits of Software Testing Methodologies?\nWhat Are the Categories of Testing Methodologies?\nWhat Are the Different Testing Methodologies?\nHow to Implement Software Testing Methodologies?\nHow Is AI Changing Testing Methodologies?\nWhere Should You Start With Testing Methodologies?\nTesting methodologies are the structured approaches, like Waterfall, Agile, the V-Model, and Iterative development, that determine when and how test teams verify a software application through its Software Development Life Cycle. Each one sequences requirements, design, coding, and verification differently, from Waterfall's sequential five stages to Agile's continuous testing cycles.\nTesting methodologies are approaches to ensure a software product meets its functional and non-functional requirements. Each method has its unique way of getting you there, and it comes with a defined set of deliverables that act as checkpoints, ensuring you're on the right path to delivering the product your customers expect.\nThis process generally involves verifying that the software application functions as outlined in its Software Requirement Specifications (SRS), avoids undesirable repercussions when used beyond its designated parameters, and possesses a fail-safe mechanism even in worst-case scenarios. These methodologies encompass various checks, from the front to the back end, including both unit and system tests.\nHere are a few objectives of testing methodologies:\nTo provide a systematic approach for proper planning and execution of software tests throughout the Software Development Life Cycle .\nTo make the software testing more robust by giving guidelines on how to run the test.\nTo ensure consistency in the testing practice across the team.\nTo identify and manage risk linked with the quality of software applications.\nTo align testing activities with the development process.\nTesting methodologies are important because they set when testing happens, who does it, and how results feed back, which makes quality predictable instead of dependent on individual effort.\nTesting methodologies plays a crucial role in the Software Testing Life Cycle , making life easier for Quality Analysts (QA) and ensuring software applications are top-notch. Here's why they matter:\nThere is an increase in complexity and interconnectedness of software applications, which surge the need to run tests on diverse platforms and devices. Testing methodologies allow testers to ensure cross-browser and cross-device compatibility.\nA robust testing methodology ensures thorough testing of the software applications during its development.\nAbsence of appropriate development and testing methodologies for contemporary software can result in projects exceeding budgets, unnecessary time extensions, and failing to align with stakeholder expectations.\nA well-structured testing methodology contributes to project efficiency, successful delivery, and the meeting of stakeholder demands.\nBy adhering to proven testing methodologies, software projects can enhance the probability of satisfying stakeholders' expectations, ensuring that the final software application aligns with their envisioned outcomes.\nSince software testing seamlessly integrates into various development methodologies, many organizations interchangeably use the terms testing methodologies and software testing types. Let us clarify this concept from the below section.\nNote: Run manual and automated tests at scale on the cloud. Try TestMu AI Now!\nA testing methodology ",
+            "source_number": 2
+          },
+          "tool_call_id": "call_XSHWjhwQfmVrgR3ZJZjhWLaN",
+          "tool_kind": null,
+          "metadata": null,
+          "timestamp": "2026-11-06T10:17:40.469232Z",
+          "outcome": "success",
+          "retry": null,
+          "part_kind": "tool-return",
+          "content_file_digests": []
+        },
+        {
+          "tool_name": "fetch_page_clean_tool",
+          "content": {
+            "title": "Software Testing Methodologies: QA Models",
+            "url": "https://www.guru99.com/testing-methodology.html",
+            "text": "Software Testing Methodology defines the strategies and testing types used to certify that an application meets client expectations. Waterfall, iterative, agile, and extreme programming each shape when testing starts and how feedback returns.\n🎯 Core Definition: Strategies and test types that verify the application under test against client expectation, each with its own objective and deliverables.\n🪜 Waterfall: Phases run strictly in sequence, so test planning starts early but execution waits for a completed design.\n🔁 Iterative: A large project splits into parts, each passing through a waterfall cycle, with the whole system tested after every iteration.\n⚡ Agile: Short incremental cycles favour responding to change over extensive planning, with every release tested thoroughly.\n👥 Extreme Programming: Very short cycles with paired programmers and test driven development, where the test is written before the code.\n🧭 Selection Factors: Project nature, client requirement, and schedule decide which methodology fits.\n📋 Setup Essentials: Realistic scheduling, defined deliverables, an agreed test approach, and transparent reporting.\nSoftware Testing Methodology is defined as strategies and testing types used to certify that the Application Under Test meets client expectations. Test Methodologies include functional and non-functional testing to validate the AUT. Examples of Testing Methodologies are Unit Testing , Integration Testing , System Testing , Performance Testing etc. Each testing methodology has a defined test objective, test strategy, and deliverables.\nNote : Since Software Testing is an integral part of any Development Methodology, many companies use the term Development Methodologies & Testing Methodologies colloquially. Hence Testing Methodologies could also refer to Waterfall, Agile and other QA models as against the above definition of Testing Methodologies. Discussion on various testing types does not add value to the readers. Hence, we will discuss the different development models.\nTesting Methodology vs Testing Type vs Test Strategy\nThe note above hints at a genuine ambiguity in the industry. Three terms are used interchangeably in conversation but mean different things on a project document, and confusing them produces test plans that answer the wrong question.\nA useful rule of thumb: the methodology sets the rhythm, the type sets the target, and the test plan records the commitment. The sections below examine the methodologies.\nIn the waterfall model , software development progress through various phases like Requirements Analysis, Design etc – sequentially .\nIn this model, the next phase begins only when the earlier phase is completed.\nThe first phase in the waterfall model is the requirements phase in which all the project requirements are completely defined before starting the testing. During this phase, the test team brainstorms the scope of testing, test strategy and drafts a detailed test plan.\nOnly once the design of software is complete, the team will move on to execution of the test cases to ensure that the developed software behaves as it expected.\nIn this methodology, the testing team proceeds to the next phase only when the previous phase is completed.\nIn this model, a big project is divided into small parts, and each part is subjected to multiple iterations of the waterfall model. At the end of an iteration, a new module is developed or an existing module is enhanced. This module is integrated into the software architecture and the entire system is tested all together.\nAs soon as iteration is completed, the entire system is subjected to testing. Feedback from testing is immediately available and is incorporated in the next cycle. The testing time required in successive iteration can be reduced based on the experience gained from past iterations.\nPayment Gateway Test Cases: Types & Checklist\nWhat is Domain Testing in Software Testing? (with Example)\n9 TOP Performance Testing Service Companies (Nov 2026)\nTr",
+            "source_number": 3
+          },
+          "tool_call_id": "call_uMKH6d3OLIhZ2j2yk9vCfKme",
+          "tool_kind": null,
+          "metadata": null,
+          "timestamp": "2026-11-06T10:17:41.243636Z",
+          "outcome": "success",
+          "retry": null,
+          "part_kind": "tool-return",
+          "content_file_digests": []
+        },
+        {
+          "tool_name": "fetch_page_clean_tool",
+          "content": {
+            "title": "What is Software Test Methodology? (With 6 Test Methodologies) | BrowserStack",
+            "url": "https://www.browserstack.com/guide/software-testing-methodologies",
+            "text": "What is Testing Methodology in Software Testing?\nImportance of Software Testing Methodologies\nFunctional and Non-functional testing methodologies\n6 Different Types of Testing Methodologies\nFactors to Consider While Choosing Software Testing Methodologies\nSoftware Testing Techniques: Static vs. Dynamic Testing\nTesting goes hand-in-hand with preparation, designing, and executing the code; treating it as an isolated procedure would be wrong. Therefore, following an effective test methodology early in the SDLC and adopting a testing infrastructure could help you identify and solve defects effectively.\nSoftware testing methodologies refer to approaches and strategies that help test a precise product to ensure it is fit for purpose. Testing methodology ensure that the product functions along with its specification, has no unwanted side effects when used in modes outside of its design parameters, and, in the worst case, will fail safely.\nIterative Model (Iterative and Incremental Development)\nVerification and Validation Methodology (V-Model)\nThis article focuses on the pioneer software development methodologies that are universally accepted and used by companies across the globe.\nSoftware Testing methodologies are the approaches and strategies used for testing a precise product to make sure it is fit for purpose. It generally entails testing that the product functions along with its specification, has no unwanted side effects when used in modes outside of its design parameters, and, in the worst case, will fail safely.\nSome well-accepted testing methodologies comprise – Waterfall model, Agile methodology , iterative model, verification and validation Methodology (V-Model), Spiral Model, Extreme Programming Model, RAD (Rapid Action Development) Methodology, and many others.\nSoftware testing methodologies forms the backbone of reducing testing cycle time in the following manner\nEvery testing methodology provides productive solutions that ensure a software project meets the business necessities and manages the user experience.\nQA testing methodologies are pivotal, giving a sense of direction of why and how testing should be executed.\nDirects organizational structure, project management, and the implementation of testing techniques .\nSoftware testing methodologies handle your project requirements, bugs, issues, and test cases in a sole integrated environment, with complete traceability throughout the test lifecycle.\nIt is an inclusive testing solution that counts requirements management, release management, test case designs, defect tracking, and many others from day one.\nDifferent testing methodologies help ensure that your software functions properly in multiple environments and platforms.\nTesting Methodology can be broken down into functional and non-functional testing:\nIn functional testing , the application is tested against the business goals. It comes with all the testing types that ensure the software functions as intended by using multiple use cases provided by a business analyst or design team. These testing methods include the likes of:\nRead More : Top 15 Functional Testing Tools and Frameworks\nNon-functional testing methodologies include testing types that focus on the operational side of a software. Examples of non-functional testing methods are:\nHere are the different types of testing methodologies that are commonly used:\nThis model for testing works perfectly for small, less complicated projects and is built on a team’s step-by-step growth during the test procedure. As it has fewer players and procedures to tend with, this can result in speedy project completion. But, bugs are found at later phases, making them extremely costly.\nOne of the key benefits of this methodology is that it is comparatively easy. The drawback is that the QA’s wouldn’t be able to make quick corrections to the test procedure, as it is regimented.\nUsed to plan & managing project requirements easily.\nSpeedy project implementation in QA testing methodo",
+            "source_number": 1
+          },
+          "tool_call_id": "call_8bXrCCFTUK7QerMHPu4ho9Wg",
+          "tool_kind": null,
+          "metadata": null,
+          "timestamp": "2026-11-06T10:17:40.325967Z",
+          "outcome": "success",
+          "retry": null,
+          "part_kind": "tool-return",
+          "content_file_digests": []
+        },
+        {
+          "tool_name": "fetch_page_clean_tool",
+          "content": {
+            "title": "",
+            "url": "https://www.geeksforgeeks.org/software-testing/software-testing-techniques/",
+            "text": ""
+          },
+          "tool_call_id": "call_xNE3r2UGyaIWOcKqGhpqM51W",
+          "tool_kind": null,
+          "metadata": null,
+          "timestamp": "2026-11-06T10:17:40.271569Z",
+          "outcome": "success",
+          "retry": null,
+          "part_kind": "tool-return",
+          "content_file_digests": []
+        },
+        {
+          "tool_name": "fetch_page_clean_tool",
+          "content": {
+            "title": "",
+            "url": "https://www.geeksforgeeks.org/software-testing/types-software-testing/",
+            "text": ""
+          },
+          "tool_call_id": "call_zolLivYLyE45BESDYpJsxSci",
+          "tool_kind": null,
+          "metadata": null,
+          "timestamp": "2026-11-06T10:17:40.174713Z",
+          "outcome": "success",
+          "retry": null,
+          "part_kind": "tool-return",
+          "content_file_digests": []
+        }
+      ],
+      "timestamp": "2026-11-06T10:17:41.245071Z",
+      "instructions": "You are a careful research assistant that writes short, source-cited briefs.\n\nWHEN TO USE TOOLS\n- Any factual research topic needs external information. Do not rely on your own memory for facts.\n1. ddg_search: call 1-2 times with focused, differently-worded queries.\n2. wiki_summary: call once for background on the main entity/concept, if it has a Wikipedia page.\n3. select_top_urls: call to choose 4-5 pages (leave `results` empty to use all search results so far).\n   Choose pages from at least 3 DIFFERENT domains; avoid forums and social media.\n4. fetch_page_clean: call on each selected URL. If text comes back empty, skip it and fetch another.\n5. save_logs: call once, right before you write the final brief.\nCall tools again on follow-up questions only if the answer is not already in the fetched sources.\n\nGROUNDING\n- Use ONLY facts found in tool results. If sources do not cover something, say so; never guess.\n- If the sources disagree, say that and attribute each claim.\n\nCITATIONS\n- Every fetch_page_clean / wiki_summary result includes a `source_number`. Cite with [n] using exactly\n  that number. Never invent a number. Every paragraph needs at least one citation, e.g. \"... [2]\".\n\nQUOTES\n- Include at least two verbatim quotes, each AT MOST 10 words, copied exactly from fetched text,\n  in double quotes, followed by a citation. Quote only text you actually saw.\n\nFORMAT\n- 5-8 paragraphs of plain prose (no bullet lists). Neutral, concise tone.\n- Do NOT write a References section; it is generated from your citations afterwards.\n\nFOLLOW-UPS\n- Use the conversation history. When asked to refine, return the FULL revised brief and keep the\n  citation numbers of existing sources unchanged.",
+      "kind": "request",
+      "run_id": "01a1b05c-fbae-70e3-99eb-89b480ba8303",
+      "conversation_id": "01a1b05c-fbae-70e3-99eb-89b58140a08e",
+      "metadata": null,
+      "state": "complete"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "save_logs_tool",
+          "args": "{}",
+          "tool_call_id": "call_o24s3AtgpCQ7f0w4JV4GDtat",
+          "tool_kind": null,
+          "id": null,
+          "provider_name": null,
+          "provider_details": null,
+          "part_kind": "tool-call"
+        }
+      ],
+      "usage": {
+        "input_tokens": 5198,
+        "cache_write_tokens": 0,
+        "cache_write_1h_tokens": 0,
+        "cache_read_tokens": 2688,
+        "output_tokens": 11,
+        "output_reasoning_tokens": 0,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "audio_seconds": 0.0,
+        "details": {
+          "is_byok": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "image_tokens": 0
+        },
+        "cost": "0.0005847"
+      },
+      "model_name": "openai/gpt-4o-mini",
+      "model_id": "openai:openai/gpt-4o-mini",
+      "timestamp": "2026-11-06T10:17:42.095790Z",
+      "kind": "response",
+      "provider_name": "openai",
+      "provider_url": "https://openrouter.ai/api/v1/",
+      "canonical_system": "openai",
+      "provider_details": {
+        "finish_reason": "tool_calls",
+        "service_tier": "default",
+        "timestamp": "2026-11-06T10:17:41Z"
+      },
+      "provider_response_id": "gen-1793960261-5zx25T7QqlRbsi6vssTx",
+      "finish_reason": "tool_call",
+      "run_id": "01a1b05c-fbae-70e3-99eb-89b480ba8303",
+      "conversation_id": "01a1b05c-fbae-70e3-99eb-89b58140a08e",
+      "metadata": null,
+      "workspace_ref": null,
+      "history_digest": null,
+      "failed_attempts": null,
+      "state": "complete"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "save_logs_tool",
+          "content": "/content/artifacts/logs.json",
+          "tool_call_id": "call_o24s3AtgpCQ7f0w4JV4GDtat",
+          "tool_kind": null,
+          "metadata": null,
+          "timestamp": "2026-11-06T10:17:42.101474Z",
+          "outcome": "success",
+          "retry": null,
+          "part_kind": "tool-return"
+        }
+      ],
+      "timestamp": "2026-11-06T10:17:42.102598Z",
+      "instructions": "You are a careful research assistant that writes short, source-cited briefs.\n\nWHEN TO USE TOOLS\n- Any factual research topic needs external information. Do not rely on your own memory for facts.\n1. ddg_search: call 1-2 times with focused, differently-worded queries.\n2. wiki_summary: call once for background on the main entity/concept, if it has a Wikipedia page.\n3. select_top_urls: call to choose 4-5 pages (leave `results` empty to use all search results so far).\n   Choose pages from at least 3 DIFFERENT domains; avoid forums and social media.\n4. fetch_page_clean: call on each selected URL. If text comes back empty, skip it and fetch another.\n5. save_logs: call once, right before you write the final brief.\nCall tools again on follow-up questions only if the answer is not already in the fetched sources.\n\nGROUNDING\n- Use ONLY facts found in tool results. If sources do not cover something, say so; never guess.\n- If the sources disagree, say that and attribute each claim.\n\nCITATIONS\n- Every fetch_page_clean / wiki_summary result includes a `source_number`. Cite with [n] using exactly\n  that number. Never invent a number. Every paragraph needs at least one citation, e.g. \"... [2]\".\n\nQUOTES\n- Include at least two verbatim quotes, each AT MOST 10 words, copied exactly from fetched text,\n  in double quotes, followed by a citation. Quote only text you actually saw.\n\nFORMAT\n- 5-8 paragraphs of plain prose (no bullet lists). Neutral, concise tone.\n- Do NOT write a References section; it is generated from your citations afterwards.\n\nFOLLOW-UPS\n- Use the conversation history. When asked to refine, return the FULL revised brief and keep the\n  citation numbers of existing sources unchanged.",
+      "kind": "request",
+      "run_id": "01a1b05c-fbae-70e3-99eb-89b480ba8303",
+      "conversation_id": "01a1b05c-fbae-70e3-99eb-89b58140a08e",
+      "metadata": null,
+      "state": "complete"
+    },
+    {
+      "parts": [
+        {
+          "content": "The concept of \"test topic\" can generally refer to various methodologies and techniques employed in software testing. Testing methodologies provide structured approaches to verify that software applications meet both functional and non-functional requirements. They guide when testing occurs, who executes it, and how feedback is integrated into the development cycle. Key methodologies include Waterfall, Agile, Iterative, and Extreme Programming, each offering unique frameworks suited for different project needs and complexities.\n\nThe Waterfall methodology features a linear, sequential process where phases like requirements analysis, design, development, and testing must be completed in order. \"Test planning starts early but execution waits for a completed design\" [3]. This method can be beneficial for smaller projects with defined requirements but may struggle with projects requiring adaptability.\n\nIn contrast, Agile methodology encourages ongoing collaboration and adaptability through short, iterative cycles. Each release undergoes thorough testing, allowing for quick responses to changes in requirements or feedback. This approach addresses the increasing complexity and interconnectedness of software applications by fostering \"short incremental cycles\" that adapt to evolving needs [2][3]. The iterative model also splits a project into manageable parts, allowing for simultaneous development and testing, which promotes faster integration and feedback loops.\n\nExtreme Programming (XP) further shortens cycles through test-driven development, engaging programmers in paired work. Here, testing and coding are closely aligned, ensuring that \"the test is written before the code\" [2]. This method emphasizes rapid iterations and consistent feedback but may be challenging in larger, more structured environments.\n\nNon-functional testing methodologies focus on aspects like performance, usability, and reliability—ensuring that a software product can handle various user scenarios and perform well under different conditions. Both functional and non-functional testing are crucial in creating a holistic testing strategy. \"Test methodologies could also refer to Waterfall, Agile, and other QA models,\" signifying their integral role across development processes [3].\n\nUltimately, the choice of testing methodology impacts project success. Factors such as client requirements, project timelines, and intended software functionality must guide the selection process. As software projects evolve, methodologies must adapt to ensure thorough validation and delivery of high-quality products that meet stakeholder expectations [1][2][3].",
+          "id": null,
+          "provider_name": null,
+          "provider_details": null,
+          "citations": null,
+          "part_kind": "text"
+        }
+      ],
+      "usage": {
+        "input_tokens": 5224,
+        "cache_write_tokens": 0,
+        "cache_write_1h_tokens": 0,
+        "cache_read_tokens": 5120,
+        "output_tokens": 435,
+        "output_reasoning_tokens": 0,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "audio_seconds": 0.0,
+        "details": {
+          "is_byok": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "image_tokens": 0
+        },
+        "cost": "0.0006606"
+      },
+      "model_name": "openai/gpt-4o-mini",
+      "model_id": "openai:openai/gpt-4o-mini",
+      "timestamp": "2026-11-06T10:17:49.833071Z",
+      "kind": "response",
+      "provider_name": "openai",
+      "provider_url": "https://openrouter.ai/api/v1/",
+      "canonical_system": "openai",
+      "provider_details": {
+        "finish_reason": "stop",
+        "service_tier": "default",
+        "timestamp": "2026-11-06T10:17:42Z"
+      },
+      "provider_response_id": "gen-1793960262-FpFvZMlyXBplhUFsG0By",
+      "finish_reason": "stop",
+      "run_id": "01a1b05c-fbae-70e3-99eb-89b480ba8303",
+      "conversation_id": "01a1b05c-fbae-70e3-99eb-89b58140a08e",
+      "metadata": null,
+      "workspace_ref": null,
+      "history_digest": null,
+      "failed_attempts": null,
+      "state": "complete"
+    }
+  ],
+  "search_results": [
+    {
+      "title": "320 SAT Math Subject Test Problems Arranged by Topic and Difficulty Level - Level 2: 160 Questions with Solutions, 160 Additional Questions with Answers (book)",
+      "url": "https://grokipedia.com/page/320_sat_math_subject_test_problems_arranged_by_topic_and_difficulty_level_level_2_160_questio_(book)",
+      "snippet": "320 SAT Math Subject Test Problems Arranged by Topic and Difficulty Level - Level 2: 160 Questions with Solutions, 160 Additional Questions with Answers is a test preparation book specifically for the SAT Subject Test in Mathematics Level 2 (discont…"
+    },
+    {
+      "title": "Testing Methodologies: Types, Examples, and How to Choose",
+      "url": "https://www.testmuai.com/learning-hub/testing-methodologies/",
+      "snippet": "Oct 6, 2026 · Testing methodologies are the structured approaches, like Waterfall, Agile, the V-Model, and Iterative development, that determine when and how test teams verify a software application through its Software Development Life Cycle."
+    },
+    {
+      "title": "Software Testing Methodologies: QA Models - Guru99What is Software Test Methodology? (With 6 Test Methodologies)Software Testing Techniques - GeeksforGeeksTypes of Software Testing - GeeksforGeeksSoftware Testing Methodology - What it is & How to SetUp?Software Testing Methodologies | Explore Types of Software ...",
+      "url": "https://www.guru99.com/testing-methodology.html",
+      "snippet": "Software Testing Methodology is defined as strategies and testing types used to certify that the Application Under Test meets client expectations. Test Methodologies include functional and non-functional testing to validate the AUT. Examples of Testing Methodologies are Unit Testing, Integration Testing, System Testing, Performance Testingetc. Each... See full list on guru99.com What is it? In the waterfall model, software development progress through various phases like Requirements Analysis, Design etc – sequentially. What Is The Testing Approach? The first phase in the waterfall model is the requirements phase in which all the project requirements are completely defined before starting the testing. During this phase, the test team brainstorms the scope of testing, test strategy and drafts a detailed test plan. Only once the design of software is complete, the team will move on to execution of the test cases to ensure that the developed software behaves as it expected. In this methodology, the testing team proceeds to the next phase on... See full list on guru99.com What is it? In this model, a big project is divided into small parts, and each part is subjected to multiple iterations of the waterfall model. At the end of an iteration, a new module is developed or an existing module is enhanced. This module is integrated into the software architecture and the entire system is tested all together What is the testing Approach? As soon as iteration is completed, the entire system is subjected to testing. Feedback from testing is immediately available and is incorporated in the next cycle. The testing time required in successive iteration can be reduced based on the experience gained from past iterations. See full list on guru99.com What is it? Traditional software development methodologies work on the premise that software requirements remain constant throughout the project. But with an increase in complexity, the requirements undergo numerous changes and continuously evolve. At times, the customer himself is not sure what he wants. Though the iterative model addresses this issue, it’s still based on the waterfall model. In Agile methodology, software is developed in incremental, rapid cycles. Interactions amongst customers, develo... What Is The Testing Approach? Incremental testing is used in agile development methods and hence, every release of the project is tested thoroughly. This ensures that any bugs in the system are fixed before the next release. See full list on guru99.com What is it? Extreme programming is a type of agile methodology which beliefs in short development cycles. A project is divided into simple engineering tasks. Programmers code a simple piece of software and get back to the customer for feedback. Review points from the customer are incorporated and the developers proceed with the next task. In extreme programming developers usually, work in pairs. Extreme Programmingis used in places where customer requirements are constantly changing. What Is The Testing Approach? 1. Add aTest Case to the test suite to verify the new functionality which is yet to be developed 2. Run all the tests and obviously the new test case added must fail since the functionality is not coded yet 3. Write some code to implement the feature/functionality 4. Run the test suite again. This time, the new test case should pass since the functionally has been coded See full list on guru99.com There are tons of methodologies available for software development and its corresponding testing. Each testing technique and methodology is designed for a specific purpose and has its relative merits and demerits. Selection of a particular methodology depends on many factors such as the nature of a project, client requirement, project schedule, etc... See full list on guru99.com Software testing methodologies should not be set up just for the sake of testing software code. The big picture should be considered and the prime goal of the project should be satisfied with the testing methodology. Refer to this list of reputable software testing service providerswho can help you establish effective testing strategies tailored to... See full list on guru99.com Sep 27, 2024 · Learn what software test methodology is and how it helps to ensure the quality and functionality of software products. Explore six common testing methodologies, such as waterfall, agile, and iterative, with benefits, drawbacks, and use cases. Jun 19, 2026 · Software testing techniques are methods used to evaluate an application against functional and non-functional requirements. Each technique focuses on identifying specific types of defects in the system. Using multiple techniques helps ensure better software quality and reliability. Aug 29, 2026 · In addition to testing classifications based on execution method, technique, level, and purpose, several specialized testing types are used to evaluate specific aspects of software. Learn about the different approaches and strategies to ensure software quality and user expectations. Compare and choose the best methodology for your project, such as Waterfall, Iterative, Agile, or XP. Software testing methodologies are the various strategies or approaches used to test an application to ensure it behaves and looks as expected. These encompass everything from front to back-end testing, including unit and system testing."
+    },
+    {
+      "title": "What is Software Test Methodology? (With 6 Test Methodologies)",
+      "url": "https://www.browserstack.com/guide/software-testing-methodologies",
+      "snippet": "Sep 27, 2024 · Learn what software test methodology is and how it helps to ensure the quality and functionality of software products. Explore six common testing methodologies, such as waterfall, agile, and iterative, with benefits, drawbacks, and use cases."
+    },
+    {
+      "title": "Software Testing Techniques - GeeksforGeeks",
+      "url": "https://www.geeksforgeeks.org/software-testing/software-testing-techniques/",
+      "snippet": "Jun 19, 2026 · Software testing techniques are methods used to evaluate an application against functional and non-functional requirements. Each technique focuses on identifying specific types of defects in the system. Using multiple techniques helps ensure better software quality and reliability."
+    },
+    {
+      "title": "Types of Software Testing - GeeksforGeeks",
+      "url": "https://www.geeksforgeeks.org/software-testing/types-software-testing/",
+      "snippet": "Aug 29, 2026 · In addition to testing classifications based on execution method, technique, level, and purpose, several specialized testing types are used to evaluate specific aspects of software."
+    }
+  ],
+  "selected_urls": [
+    "https://www.testmuai.com/learning-hub/testing-methodologies/",
+    "https://www.guru99.com/testing-methodology.html",
+    "https://www.browserstack.com/guide/software-testing-methodologies",
+    "https://www.geeksforgeeks.org/software-testing/software-testing-techniques/",
+    "https://www.geeksforgeeks.org/software-testing/types-software-testing/"
+  ],
+  "snippets": [
+    {
+      "url": "https://www.browserstack.com/guide/software-testing-methodologies",
+      "title": "What is Software Test Methodology? (With 6 Test Methodologies) | BrowserStack",
+      "source_number": 1,
+      "text": "What is Testing Methodology in Software Testing?\nImportance of Software Testing Methodologies\nFunctional and Non-functional testing methodologies\n6 Different Types of Testing Methodologies\nFactors to Consider While Choosing Software Testing Methodologies\nSoftware Testing Techniques: Static vs. Dynamic Testing\nTesting goes hand-in-hand with preparation, designing, and executing the code; treating it as an isolated procedure would be wrong. Therefore, following an effective test methodology early in the SDLC and adopting a testing infrastructure could help you identify and solve defects effectively.\nSoftware testing methodologies refer to approaches and strategies that help test a precise product to ensure it is fit for purpose. Testing methodology ensure that the product functions along with its specification, has no unwanted side effects when used in modes outside of its design parameters, and, in the worst case, will fail safely.\nIterative Model (Iterative and Incremental Development)\nVerification and Validation Methodology (V-Model)\nThis article focuses on the pioneer software development methodologies that are universally accepted and used by companies across the globe.\nSoftware Testing methodologies are the approaches and strategies used for testing a precise product to make sure it is fit for purpose. It generally entails testing that the product functions along with its specification, has no unwanted side effects when used in modes outside of its design parameters, and,"
+    },
+    {
+      "url": "https://www.testmuai.com/learning-hub/testing-methodologies/",
+      "title": "Testing Methodologies: Types, Examples, and How to Choose",
+      "source_number": 2,
+      "text": "Write, Track and Manage Every Manual or Automated Tests in One Agentic Test Management Platform with TestMu AI Test Manager.\nTesting Methodologies: Types, Examples, and How to Choose\nTesting methodologies define how software is tested. Compare Waterfall, Agile, V-Model, Iterative, Spiral, and XP, and learn when to use each one.\nWhy Are Testing Methodologies Important?\nHow Do Testing Methodologies Differ From Software Testing Types?\nWhen to Implement Testing Methodologies?\nWhat Are the Benefits of Software Testing Methodologies?\nWhat Are the Categories of Testing Methodologies?\nWhat Are the Different Testing Methodologies?\nHow to Implement Software Testing Methodologies?\nHow Is AI Changing Testing Methodologies?\nWhere Should You Start With Testing Methodologies?\nTesting methodologies are the structured approaches, like Waterfall, Agile, the V-Model, and Iterative development, that determine when and how test teams verify a software application through its Software Development Life Cycle. Each one sequences requirements, design, coding, and verification differently, from Waterfall's sequential five stages to Agile's continuous testing cycles.\nTesting methodologies are approaches to ensure a software product meets its functional and non-functional requirements. Each method has its unique way of getting you there, and it comes with a defined set of deliverables that act as checkpoints, ensuring you're on the right path to delivering the product your customers expect.\nThis process"
+    },
+    {
+      "url": "https://www.guru99.com/testing-methodology.html",
+      "title": "Software Testing Methodologies: QA Models",
+      "source_number": 3,
+      "text": "Software Testing Methodology defines the strategies and testing types used to certify that an application meets client expectations. Waterfall, iterative, agile, and extreme programming each shape when testing starts and how feedback returns.\n🎯 Core Definition: Strategies and test types that verify the application under test against client expectation, each with its own objective and deliverables.\n🪜 Waterfall: Phases run strictly in sequence, so test planning starts early but execution waits for a completed design.\n🔁 Iterative: A large project splits into parts, each passing through a waterfall cycle, with the whole system tested after every iteration.\n⚡ Agile: Short incremental cycles favour responding to change over extensive planning, with every release tested thoroughly.\n👥 Extreme Programming: Very short cycles with paired programmers and test driven development, where the test is written before the code.\n🧭 Selection Factors: Project nature, client requirement, and schedule decide which methodology fits.\n📋 Setup Essentials: Realistic scheduling, defined deliverables, an agreed test approach, and transparent reporting.\nSoftware Testing Methodology is defined as strategies and testing types used to certify that the Application Under Test meets client expectations. Test Methodologies include functional and non-functional testing to validate the AUT. Examples of Testing Methodologies are Unit Testing , Integration Testing , System Testing , Performance Testing etc. Each testi"
+    }
+  ],
+  "sources": [
+    {
+      "n": 1,
+      "title": "What is Software Test Methodology? (With 6 Test Methodologies) | BrowserStack",
+      "url": "https://www.browserstack.com/guide/software-testing-methodologies"
+    },
+    {
+      "n": 2,
+      "title": "Testing Methodologies: Types, Examples, and How to Choose",
+      "url": "https://www.testmuai.com/learning-hub/testing-methodologies/"
+    },
+    {
+      "n": 3,
+      "title": "Software Testing Methodologies: QA Models",
+      "url": "https://www.guru99.com/testing-methodology.html"
+    }
+  ],
+  "tool_calls": [
+    {
+      "tool": "ddg_search",
+      "query": "Test topic",
+      "n_results": 1
+    },
+    {
+      "tool": "ddg_search",
+      "query": "Testing methodology",
+      "n_results": 5
+    },
+    {
+      "tool": "select_top_urls",
+      "selected": [
+        "https://www.testmuai.com/learning-hub/testing-methodologies/",
+        "https://www.guru99.com/testing-methodology.html",
+        "https://www.browserstack.com/guide/software-testing-methodologies",
+        "https://www.geeksforgeeks.org/software-testing/software-testing-techniques/",
+        "https://www.geeksforgeeks.org/software-testing/types-software-testing/"
+      ]
+    },
+    {
+      "tool": "fetch_page_clean",
+      "url": "https://www.geeksforgeeks.org/software-testing/types-software-testing/",
+      "ok": false
+    },
+    {
+      "tool": "fetch_page_clean",
+      "url": "https://www.geeksforgeeks.org/software-testing/software-testing-techniques/",
+      "ok": false
+    },
+    {
+      "tool": "fetch_page_clean",
+      "url": "https://www.browserstack.com/guide/software-testing-methodologies",
+      "ok": true
+    },
+    {
+      "tool": "fetch_page_clean",
+      "url": "https://www.testmuai.com/learning-hub/testing-methodologies/",
+      "ok": true
+    },
+    {
+      "tool": "fetch_page_clean",
+      "url": "https://www.guru99.com/testing-methodology.html",
+      "ok": true
+    },
+    {
+      "tool": "save_logs",
+      "path": "logs.json"
+    }
+  ],
+  "draft": "The concept of \"test topic\" can generally refer to various methodologies and techniques employed in software testing. Testing methodologies provide structured approaches to verify that software applications meet both functional and non-functional requirements. They guide when testing occurs, who executes it, and how feedback is integrated into the development cycle. Key methodologies include Waterfall, Agile, Iterative, and Extreme Programming, each offering unique frameworks suited for different project needs and complexities.\n\nThe Waterfall methodology features a linear, sequential process where phases like requirements analysis, design, development, and testing must be completed in order. \"Test planning starts early but execution waits for a completed design\" [3]. This method can be beneficial for smaller projects with defined requirements but may struggle with projects requiring adaptability.\n\nIn contrast, Agile methodology encourages ongoing collaboration and adaptability through short, iterative cycles. Each release undergoes thorough testing, allowing for quick responses to changes in requirements or feedback. This approach addresses the increasing complexity and interconnectedness of software applications by fostering \"short incremental cycles\" that adapt to evolving needs [2][3]. The iterative model also splits a project into manageable parts, allowing for simultaneous development and testing, which promotes faster integration and feedback loops.\n\nExtreme Programming (XP) further shortens cycles through test-driven development, engaging programmers in paired work. Here, testing and coding are closely aligned, ensuring that \"the test is written before the code\" [2]. This method emphasizes rapid iterations and consistent feedback but may be challenging in larger, more structured environments.\n\nNon-functional testing methodologies focus on aspects like performance, usability, and reliability—ensuring that a software product can handle various user scenarios and perform well under different conditions. Both functional and non-functional testing are crucial in creating a holistic testing strategy. \"Test methodologies could also refer to Waterfall, Agile, and other QA models,\" signifying their integral role across development processes [3].\n\nUltimately, the choice of testing methodology impacts project success. Factors such as client requirements, project timelines, and intended software functionality must guide the selection process. As software projects evolve, methodologies must adapt to ensure thorough validation and delivery of high-quality products that meet stakeholder expectations [1][2][3].",
+  "brief": "# Research Brief: Test topic\n\nThe concept of \"test topic\" can generally refer to various methodologies and techniques employed in software testing. Testing methodologies provide structured approaches to verify that software applications meet both functional and non-functional requirements. They guide when testing occurs, who executes it, and how feedback is integrated into the development cycle. Key methodologies include Waterfall, Agile, Iterative, and Extreme Programming, each offering unique frameworks suited for different project needs and complexities. [1]\n\nThe Waterfall methodology features a linear, sequential process where phases like requirements analysis, design, development, and testing must be completed in order. \"Test planning starts early but execution waits for a completed design\" [3]. This method can be beneficial for smaller projects with defined requirements but may struggle with projects requiring adaptability.\n\nIn contrast, Agile methodology encourages ongoing collaboration and adaptability through short, iterative cycles. Each release undergoes thorough testing, allowing for quick responses to changes in requirements or feedback. This approach addresses the increasing complexity and interconnectedness of software applications by fostering \"short incremental cycles\" that adapt to evolving needs [2][3]. The iterative model also splits a project into manageable parts, allowing for simultaneous development and testing, which promotes faster integration and feedback loops.\n\nExtreme Programming (XP) further shortens cycles through test-driven development, engaging programmers in paired work. Here, testing and coding are closely aligned, ensuring that \"the test is written before the code\" [2]. This method emphasizes rapid iterations and consistent feedback but may be challenging in larger, more structured environments.\n\nNon-functional testing methodologies focus on aspects like performance, usability, and reliability—ensuring that a software product can handle various user scenarios and perform well under different conditions. Both functional and non-functional testing are crucial in creating a holistic testing strategy. \"Test methodologies could also refer to Waterfall, Agile, and other QA models,\" signifying their integral role across development processes [3].\n\nUltimately, the choice of testing methodology impacts project success. Factors such as client requirements, project timelines, and intended software functionality must guide the selection process. As software projects evolve, methodologies must adapt to ensure thorough validation and delivery of high-quality products that meet stakeholder expectations [1][2][3].\n\n## References\n\n[1] What is Software Test Methodology? (With 6 Test Methodologies) | BrowserStack — https://www.browserstack.com/guide/software-testing-methodologies\n[2] Testing Methodologies: Types, Examples, and How to Choose — https://www.testmuai.com/learning-hub/testing-methodologies/\n[3] Software Testing Methodologies: QA Models — https://www.guru99.com/testing-methodology.html\n",
+  "paragraph_count": 6,
+  "references": [
+    {
+      "n": 1,
+      "title": "What is Software Test Methodology? (With 6 Test Methodologies) | BrowserStack",
+      "url": "https://www.browserstack.com/guide/software-testing-methodologies"
+    },
+    {
+      "n": 2,
+      "title": "Testing Methodologies: Types, Examples, and How to Choose",
+      "url": "https://www.testmuai.com/learning-hub/testing-methodologies/"
+    },
+    {
+      "n": 3,
+      "title": "Software Testing Methodologies: QA Models",
+      "url": "https://www.guru99.com/testing-methodology.html"
+    }
+  ]
+}
