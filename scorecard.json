@@ -1,0 +1,23 @@
+{
+  "unique_domains": 4,
+  "domains": [
+    "earth.org",
+    "en.wikipedia.org",
+    "energy.gov",
+    "environmentalscience.org"
+  ],
+  "domains_ok": true,
+  "short_quotes": 2,
+  "quotes": [
+    "Solar owners can reduce their energy bills with",
+    "What Is Solar Energy and How Does It Work?"
+  ],
+  "quotes_ok": true,
+  "has_references": true,
+  "has_inline_citations": true,
+  "paragraph_count": 6,
+  "paragraphs_ok": true,
+  "logs_exist": true,
+  "mode": "agent",
+  "all_checks_passed": true
+}
